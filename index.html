@@ -3,25 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ポモドーロタイマー２</title>
+    <title>ポモドーロタイマー Pro</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
     <div class="container">
-        <h1>ポモドーロタイマー</h1>
-        <div id="timer">
-            <span id="minutes">25</span>:<span id="seconds">00</span>
+        <div class="header">
+            <h1><i class="fas fa-tomato"></i> ポモドーロタイマー Pro</h1>
+            <button id="settings-btn" class="settings-btn"><i class="fas fa-cog"></i></button>
         </div>
-        <div class="buttons">
-            <button id="start">スタート</button>
-            <button id="pause">一時停止</button>
-            <button id="reset">リセット</button>
+        
+        <div class="timer-wrapper">
+            <div class="progress-ring">
+                <svg class="progress-ring-svg" width="300" height="300">
+                    <circle class="progress-ring-background" cx="150" cy="150" r="140" />
+                    <circle class="progress-ring-circle" cx="150" cy="150" r="140" />
+                </svg>
+                <div class="timer-display">
+                    <div id="timer">
+                        <span id="minutes">25</span>:<span id="seconds">00</span>
+                    </div>
+                    <div class="mode-indicator">
+                        <span id="current-mode">作業時間</span>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="cycle-info">
-            <p>現在のサイクル: <span id="cycle-count">0</span>/4</p>
-            <p>現在のモード: <span id="current-mode">作業</span></p>
+
+        <div class="controls">
+            <button id="start" class="control-btn primary">
+                <i class="fas fa-play"></i> スタート
+            </button>
+            <button id="pause" class="control-btn warning">
+                <i class="fas fa-pause"></i> 一時停止
+            </button>
+            <button id="reset" class="control-btn danger">
+                <i class="fas fa-redo"></i> リセット
+            </button>
+        </div>
+
+        <div class="stats">
+            <div class="stat-item">
+                <div class="stat-value" id="completed-sessions">0</div>
+                <div class="stat-label">完了セッション</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value" id="cycle-count">0</div>
+                <div class="stat-label">サイクル</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value" id="total-time">0h 0m</div>
+                <div class="stat-label">合計時間</div>
+            </div>
+        </div>
+
+        <div class="task-section">
+            <h3><i class="fas fa-tasks"></i> 今日のタスク</h3>
+            <div class="task-input">
+                <input type="text" id="task-input" placeholder="タスクを入力...">
+                <button id="add-task"><i class="fas fa-plus"></i></button>
+            </div>
+            <ul id="task-list"></ul>
         </div>
     </div>
+
+    <!-- Settings Modal -->
+    <div id="settings-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>設定</h3>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="setting-group">
+                    <label for="work-time">作業時間 (分)</label>
+                    <input type="number" id="work-time" min="1" max="60" value="25">
+                </div>
+                <div class="setting-group">
+                    <label for="short-break">短い休憩 (分)</label>
+                    <input type="number" id="short-break" min="1" max="30" value="5">
+                </div>
+                <div class="setting-group">
+                    <label for="long-break">長い休憩 (分)</label>
+                    <input type="number" id="long-break" min="1" max="60" value="15">
+                </div>
+                <div class="setting-group">
+                    <label for="sound-enabled">音声通知</label>
+                    <input type="checkbox" id="sound-enabled" checked>
+                </div>
+                <button id="save-settings" class="control-btn primary">保存</button>
+            </div>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html> 
