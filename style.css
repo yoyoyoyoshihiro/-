@@ -1,0 +1,58 @@
+body {
+    font-family: sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+h1 {
+    color: #333;
+}
+
+#timer {
+    font-size: 5rem;
+    margin: 1rem 0;
+    color: #d9534f;
+}
+
+.buttons button {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    margin: 0 0.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+}
+
+#start {
+    background-color: #5cb85c;
+}
+
+#pause {
+    background-color: #f0ad4e;
+}
+
+#reset {
+    background-color: #d9534f;
+}
+
+.buttons button:hover {
+    opacity: 0.9;
+}
+
+.cycle-info {
+    margin-top: 1.5rem;
+    color: #555;
+} 
