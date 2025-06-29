@@ -98,7 +98,7 @@ git status
 
 ### **公開URL**
 ```
-https://yoyoyoyoshihiro.github.io/-/
+https://yoyoyoyoshihiro.github.io/pomodoro/
 ```
 
 ### **デプロイされた機能**
